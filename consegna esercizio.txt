@@ -1,0 +1,24 @@
+Realizzare un’applicazione che permetta la gestione dei corsi, le iscrizioni e la relativa carriera (esami superati) degli studenti di un’università con le seguenti voci menù:
+
+- Inserisci studente
+- Inserisci corso universitario
+- Iscrivi studente a corso
+- Registra voto di uno studente ad un corso
+- Stampa media voti dello studente di matricola x
+- Stampa media voti del corso x
+- Stampa carriera dello studente di matricola x (corsi con relativo voto di esame)
+- Stampa iscritti ad un corso con relativo numero
+- Carica/Salva studenti
+- Carica/Salva corsi
+- Esci
+
+Indicazioni utili:
+L'Università gestisce gli Studenti iscritti ed i Corsi universitari attivati.
+Ogni Studente è caratterizzato da un nome, un cognome, una matricola (un codice alfanumerico di 5 caratteri), una lista di corsi a cui è iscritto e per ognuno di questi un voto [18, 30] se l’esame del corso è stato superato.
+Un Corso è caratterizzato da un nome, un docente, un CFU (credito formativo universitario), una lista di studenti iscritti.
+Attenzione individuare i possibili “problemi” - “anomalie” e gestirle con opportune classi di “eccezioni”.
+
+Uno studente può iscriversi ad un corso attraverso la matricola ed il nome del corso. Pertanto lo studente deve risultare registrato e il corso presente nella lista dei corsi universitari, altrimenti l’iscrizione non è possibile.
+La registrazione di un voto ad uno studente avviene attraverso la matricola ed il nome del corso e risulta possibile solo se lo studente è registrato e regolarmente iscritto al corso per il quale si intende registrare il voto.
+Vedi serializzazione e persistenza degli oggetti su File pag. A113.
+Vedi serializzazione e persistenza degli oggetti su File pag. A113.
