@@ -1,9 +1,5 @@
 Realizzare un’applicazione che permetta la gestione dei corsi, le iscrizioni e la relativa carriera (esami superati) degli studenti di un’università con le seguenti voci menù:
 
-- Inserisci studente
-- Inserisci corso universitario
-- Iscrivi studente a corso
-- Registra voto di uno studente ad un corso
 - Stampa media voti dello studente di matricola x
 - Stampa media voti del corso x
 - Stampa carriera dello studente di matricola x (corsi con relativo voto di esame)
