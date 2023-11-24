@@ -45,5 +45,9 @@ public class Studenti {
 		this.vCorsiIscritto[i]=c;
 		i++;
 	}
-
+	public void StampaVoticorsi(Studenti s) {
+		for(int j=0;vCorsiIscritto[j]!=null;j++) {
+			System.out.println("Corso "+(j+1)+": "+this.vCorsiIscritto[j]+" voto: "+this.vVoti[j]);
+		}
+	}
 }
