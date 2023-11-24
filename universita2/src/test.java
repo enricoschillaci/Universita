@@ -1,3 +1,4 @@
+package uni;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,6 +8,7 @@ public class test {
 
 	public static void main(String[] args) throws IOException{
 		Universita u=new Universita();
+		Studenti s=new Studenti();
 		Studenti sAppoggio;
 		Corsi cAppoggio, c1;
 		BufferedReader inp=new BufferedReader(new InputStreamReader(System.in));
@@ -47,8 +49,11 @@ public class test {
 						do {
 							matricola=inp.readLine();
 							
-							if(matricola.length()<5) {
+							if(matricola.length()!=5) {
+								System.out.println("Reinserire matricola corretta: ");
 								verifica=false;
+							}else {
+								verifica=true;
 							}
 							
 						}while(verifica==false);
@@ -69,9 +74,10 @@ public class test {
 						System.out.print("Il titolare di cattedra del corso e': ");
 						docente=inp.readLine();
 						
-						System.out.print("Il CFU del corso e' pari a: ");
-						cfu=Integer.parseInt(inp.readLine());
-						
+						System.out.print("Il CFU del corso e' pari a (1-12): ");
+						do {
+							cfu=Integer.parseInt(inp.readLine());
+						}while(cfu<=12);
 						//Inizializzazione corso
 						c1=new Corsi(nomeCorso, docente, cfu);
 						u.addCorso(c1);
@@ -91,10 +97,16 @@ public class test {
 						//Ricerca dello studente e del corso
 						sAppoggio=u.trovaStudenti(matricola);
 						cAppoggio=u.trovaCors(nomeCorso);
-						
+						if(sAppoggio==null) {
+							System.out.println("errore nell inserimento");
+							break;
+						}
+						if(cAppoggio==null) {
+							System.out.println("errore nell inserimento");
+							break;
+						}
 						cAppoggio.addStudCorso(sAppoggio);
 						sAppoggio.addCorsoAStud(cAppoggio);
-						break;
 						
 					case 4:
 						//Registrazione voti studente ad un corso
@@ -102,12 +114,18 @@ public class test {
 						System.out.println("Inserire matricola dello studente da valutare: ");
 						matricola=inp.readLine();
 						sAppoggio=u.trovaStudenti(matricola);
-
+						if(sAppoggio==null) {
+							System.out.println("errore nell inserimento");
+							break;
+						}
 						//Inserimento nome corso (per capire dove mettere il voto)
 						System.out.println("In quale corso si vuole aggiungere una valutazione:");
 						nomeCorso=inp.readLine();
 						cAppoggio=u.trovaCors(nomeCorso);
-
+						if(cAppoggio==null) {
+							System.out.println("errore nell inserimento");
+							break;
+						}
 						//Inserimento voto
 						System.out.println("Inserisci il voto dello studente:");
 						voto=Integer.parseInt(inp.readLine());
@@ -121,7 +139,10 @@ public class test {
 						System.out.println("Inserire matricola dello studente da valutare: ");
 						matricola=inp.readLine();
 						sAppoggio=u.trovaStudenti(matricola);
-
+						if(sAppoggio==null) {
+							System.out.println("errore nell inserimento");
+							break;
+						}
 						//Calcolo media
 						mediaVotiApp=u.mediaVoti(sAppoggio);
 
@@ -134,11 +155,23 @@ public class test {
 						break;
 						
 					case 7:
-						
+						System.out.println("Inserisci la matricola per stampare la sua carriera universitaria: ");
+						matricola=inp.readLine();
+						sAppoggio=u.trovaStudenti(matricola);
+						if(sAppoggio==null) {
+							System.out.println("errore nell inserimento");
+							break;
+						}
+						sAppoggio.StampaVoticorsi(sAppoggio);
 						break;
 						
 					case 8:
-						
+						System.out.println("Inserisci il nome del corso per stampare i suoi iscritti: ");
+						nomeCorso=inp.readLine();
+						cAppoggio=u.trovaCors(nomeCorso);
+						if(cAppoggio!=null) {
+							cAppoggio.StampaIscCorsi(cAppoggio);
+						}
 						break;
 						
 					case 9:
