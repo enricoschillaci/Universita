@@ -1,0 +1,5 @@
+Classe Studente:
+nome;cognome;matricola
+------------------------
+Classe Corsi:
+nomeCorso;docente;cfu
