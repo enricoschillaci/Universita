@@ -38,4 +38,11 @@ public class Corsi {
 			}
 		}
 	}
+	public void StampaIscCorsi(Corsi cAppoggio) {
+		System.out.println("studenti presenti nel corso: "+cAppoggio);
+		for(int j=0;vStudentiCorso[j]!=null;j++) {
+			System.out.println("studente "+(j+1)+" : "+vStudentiCorso[j]);
+		}
+		System.out.println("per un totale di "+i+" iscritti presenti");
+	}
 }
